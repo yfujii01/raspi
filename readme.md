@@ -2,7 +2,13 @@
 
 ## 概要
 
-raspiのip addressをipaddress.txtに書き出す
+raspiのip address(local ip)をipaddress.txtに書き出す
+
+## ipadress取得方法
+
+```sh
+curl https://raw.githubusercontent.com/yfujii01/raspi/master/ipaddress.txt
+```
 
 ## 設定方法
 
