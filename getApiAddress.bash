@@ -6,6 +6,8 @@ apiaddress=$(cat /tmp/ngrok.log|grep ngrok|jq .|grep opts|sed -r 's/^.*Hostname:
 
 truncate -s 100 /tmp/ngrok.log
 
+[ -z "$apiaddress" ] && exit
+
 echo 'https://'${apiaddress} > apiaddress.txt
 
 git add -A
