@@ -1,6 +1,6 @@
 cd $(dirname $0)
 
-[ ! -f /tmp/ngrok.log ] && return
+[ ! -f /tmp/ngrok.log ] && exit
 
 apiaddress=$(cat /tmp/ngrok.log|grep ngrok|jq .|grep opts|sed -r 's/^.*Hostname://'|sed -r 's/ .*$//')
 
