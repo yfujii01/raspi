@@ -4,7 +4,7 @@ cd $(dirname $0)
 
 apiaddress=$(cat /tmp/ngrok.log|grep ngrok|jq .|grep opts|sed -r 's/^.*Hostname://'|sed -r 's/ .*$//')
 
-rm /tmp/ngrok.log
+truncate -s 100 /tmp/ngrok.log
 
 echo 'https://'${apiaddress} > apiaddress.txt
 
