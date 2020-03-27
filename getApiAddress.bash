@@ -1,10 +1,8 @@
 cd $(dirname $0)
 
-apiaddress=$(cat /tmp/ngrok.log|grep ngrok|jq .|grep opts|sed -r 's/^.*Hostname://'|sed -r 's/ .*$//')
+[ ! -f /tmp/ngrok.log ] && return
 
-if [ -z "$apiaddress" ]; then
-  return
-fi
+apiaddress=$(cat /tmp/ngrok.log|grep ngrok|jq .|grep opts|sed -r 's/^.*Hostname://'|sed -r 's/ .*$//')
 
 rm /tmp/ngrok.log
 
